@@ -1,19 +1,23 @@
 <h1>
-  Shift #<%= @shift.id %> details
+  Shift Details
 </h1>
 
+<% if current_user.seniority == "Chief" %>
 <a href="/shifts/<%= @shift.id %>/edit">
   Edit shift
 </a>
 
 <hr>
 
+<% end %>
+
+
 <dl>
   <dt>
-    User
+    Resident
   </dt>
   <dd>
-    <%= User.find(@shift.user_id).last_name %>
+    <%= User.find(@shift.user_id).first_name %> <%= User.find(@shift.user_id).last_name %>
   </dd>
 
   <dt>
@@ -52,9 +56,11 @@
   </dd>
 </dl>
 
+<% if current_user.seniority == "Chief" %>
 <a href="/delete_shift/<%= @shift.id %>">
   Delete shift
 </a>
+<% end %>
 
 <hr>
 

@@ -22,7 +22,7 @@
       Resident
     </label>
 
-    <%= select_tag("user_id", options_from_collection_for_select(User.all, :id, :last_name, @course.try(:user_id)), :class => "form-control") %>
+    <%= select_tag("user_id", options_from_collection_for_select(User.where(active_status: true), :id, :last_name, @shift.try(:user_id)), :class => "form-control") %>
   </div>
 
   <!-- Label and input for service_id -->
@@ -31,7 +31,7 @@
       Service
     </label>
 
-    <%= select_tag("service_id", options_from_collection_for_select(Service.all, :id, :name, @course.try(:service_id)), :class => "form-control") %>
+    <%= select_tag("service_id", options_from_collection_for_select(Service.all, :id, :name, @shfit.try(:service_id)), :class => "form-control") %>
   </div>
 
   <!-- Label and input for date -->
@@ -40,7 +40,7 @@
       Date (Year/Month/Day)
     </label>
 
-    <input type="text" id="date" name="date" class="form-control" value="<%= @shift.try(:date) %>">
+    <input type="text" data-provide='datepicker' id="date" name="date" class="form-control" value="<%= @shift.try(:date) %>">
   </div>
 
   <!-- Label and input for night -->

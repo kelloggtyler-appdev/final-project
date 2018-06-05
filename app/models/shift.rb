@@ -19,8 +19,8 @@ class Shift < ApplicationRecord
   # # Custom Validation, unable to book resident working 14 days in a row
   validate :consecutive_days
     def consecutive_days
-        @start = (date - 13.days).to_datetime
         @end = date
+        @start = date - 13.days
         @shifts = Shift.where(user_id: user_id)
         @shifts = @shifts.where("date > ?", @start)
         @shifts = @shifts.where("date < ?", @end)
