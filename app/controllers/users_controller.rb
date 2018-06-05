@@ -58,6 +58,7 @@ class UsersController < ApplicationController
   def edit_user
     @user = User.find(params.fetch("id_to_modify"))
     @user.seniority = params.fetch("seniority")
+    @user.active = params.fetch("active")
     @user.save
     
     redirect_to("/users/#{@user.id}", :notice => "Resident Status Updated")

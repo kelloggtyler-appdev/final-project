@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :addactivetousers
   # Routes for the Assignment resource:
 
   # CREATE

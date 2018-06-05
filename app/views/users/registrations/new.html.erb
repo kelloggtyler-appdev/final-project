@@ -173,6 +173,25 @@
               <% end %>
             </div>
             <!-- Devise Input for seniority end -->
+            
+            <!-- Devise Input for active resident start -->
+            <div class="form-group">
+              <% active_was_invalid = resource.errors.include?(:active) %>
+  
+              <% active_class = "form-control" %>
+  
+              <% if was_validated %>
+                <% if active_was_invalid %>
+                  <% active_class << " is-invalid" %>
+                <% else %>
+                  <% active_class << " is-valid" %>
+                <% end %>
+              <% end %>
+  
+              <%= f.hidden_field :active, :value => 'true' %>
+  
+            </div>
+            <!-- Devise Input for active user end -->
           
           <%= f.button class: "btn btn-outline-primary btn-block" %>
 
