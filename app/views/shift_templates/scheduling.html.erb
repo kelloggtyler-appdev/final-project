@@ -6,12 +6,14 @@
 <a href="/shifts/new">
   Add a new shift
 </a>
+<dd>
+  
+</dd>
 <% end %>
 
-<hr>
 
 <table class="table">
-  <tr>
+  <tr class="table-active">
 
     <th>
       Resident
@@ -34,7 +36,7 @@
     </th>
 
     <th>
-      Updated at
+      Updated
     </th>
 
     <th>
@@ -46,7 +48,7 @@
   <tr>
 
     <td>
-      <%= User.find(shift.user_id).last_name %>
+       <%= User.find(shift.user_id).first_name %> <%= User.find(shift.user_id).last_name %>
     </td>
 
     <td>
@@ -58,7 +60,7 @@
     </td>
 
     <td>
-      <%= shift.date.strftime("%d/%m/%y") %>
+      <%= shift.date.strftime("%b %d, %Y") %>
     </td>
 
     <td>

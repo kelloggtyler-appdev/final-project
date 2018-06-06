@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer
 #  service_id :integer
-#  date       :datetime
+#  date       :date
 #  night      :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -19,7 +19,7 @@ class Shift < ApplicationRecord
   # # Custom Validation, unable to book resident working 14 days in a row
   validate :consecutive_days
     def consecutive_days
-        @start = (date - 13.days).to_datetime
+        @start = date - 13.days
         @end = date
         @shifts = Shift.where(user_id: user_id)
         @shifts = @shifts.where("date > ?", @start)
@@ -33,7 +33,7 @@ class Shift < ApplicationRecord
   # # Custom Validation, unable to book resident for more than 36 hours
   validate :consecutive_shifts
     def consecutive_shifts
-        @start = (date - 2.days).to_datetime
+        @start = date - 2.days
         @shifts = Shift.where(date: @start)
         @shifts = @shifts.where(user_id: user_id)
         if @shifts.count > 2

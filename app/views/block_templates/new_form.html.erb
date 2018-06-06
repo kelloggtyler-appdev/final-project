@@ -33,7 +33,7 @@
       Start date
     </label>
 
-    <input type="text" id="start_date" name="start_date" class="form-control" value="<%= Date.today %>">
+    <input type="date" id="start_date" name="start_date" class="form-control" value="<%= Date.today %>">
   </div>
 
   <!-- Label and input for end_date -->
@@ -42,10 +42,10 @@
       End date
     </label>
 
-    <input type="text" id="end_date" name="end_date" class="form-control" value="<%= Date.today+30 %>">
+    <input type="date" id="end_date" name="end_date" class="form-control" value="<%= Date.today+30 %>">
   </div>
 
-  <button class="btn btn-block btn-outline-secondary">
+  <button class="btn btn-block btn-outline-primary">
     Create block
   </button>
 </form>

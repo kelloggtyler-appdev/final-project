@@ -8,7 +8,7 @@
 <% end %>
 
 <h1>
-  Edit assignment #<%= @assignment.id %>
+  Edit Assignment
 </h1>
 
 <hr>
@@ -41,7 +41,7 @@
     <%= select_tag("service_id", options_from_collection_for_select(Service.all, :id, :name, @assignment.try(:service_id)), :class => "form-control") %>
   </div>
 
-  <button class="btn btn-block btn-outline-secondary">
+  <button class="btn btn-block btn-outline-primary">
     Update assignment
   </button>
 </form>

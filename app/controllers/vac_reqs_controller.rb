@@ -1,10 +1,10 @@
 class VacReqsController < ApplicationController
   def index
     if current_user.seniority == "Chief"
-      @vac_reqs_chief = VacReq.where(user_id: current_user.id).order('approval DESC')
-      @vac_reqs = VacReq.where.not(user_id: current_user.id).order('approval DESC')
+      @vac_reqs_chief = VacReq.where(user_id: current_user.id).order('start_date asc')
+      @vac_reqs = VacReq.where.not(user_id: current_user.id).order('start_date asc')
     else 
-      @vac_reqs = VacReq.where(user_id: current_user.id).order('approval DESC')
+      @vac_reqs = VacReq.where(user_id: current_user.id).order("start_date ASC")
     end
     render("vac_req_templates/index.html.erb")
   end

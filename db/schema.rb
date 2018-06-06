@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605202135) do
+ActiveRecord::Schema.define(version: 20180605223659) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -24,6 +24,23 @@ ActiveRecord::Schema.define(version: 20180605202135) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "addactivetousers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_addactivetousers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_addactivetousers_on_reset_password_token", unique: true
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -52,8 +69,8 @@ ActiveRecord::Schema.define(version: 20180605202135) do
   end
 
   create_table "blocks", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number"
@@ -71,7 +88,7 @@ ActiveRecord::Schema.define(version: 20180605202135) do
   create_table "shifts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "service_id"
-    t.datetime "date"
+    t.date "date"
     t.boolean "night"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -92,7 +109,7 @@ ActiveRecord::Schema.define(version: 20180605202135) do
     t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "year"
+    t.boolean "active"
     t.string "seniority"
     t.boolean "active_status"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -101,8 +118,8 @@ ActiveRecord::Schema.define(version: 20180605202135) do
 
   create_table "vac_reqs", force: :cascade do |t|
     t.integer "user_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.string "approval"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

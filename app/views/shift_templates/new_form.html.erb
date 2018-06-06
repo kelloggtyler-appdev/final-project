@@ -22,7 +22,7 @@
       Resident
     </label>
 
-    <%= select_tag("user_id", options_from_collection_for_select(User.all, :id, :last_name, @course.try(:user_id)), :class => "form-control") %>
+    <%= select_tag("user_id", options_from_collection_for_select(User.all, :id, :last_name, @shift.try(:user_id)), :class => "form-control") %>
   </div>
 
   <!-- Label and input for service_id -->
@@ -31,16 +31,17 @@
       Service
     </label>
 
-    <%= select_tag("service_id", options_from_collection_for_select(Service.all, :id, :name, @course.try(:service_id)), :class => "form-control") %>
+    <%= select_tag("service_id", options_from_collection_for_select(Service.all, :id, :name, @shift.try(:service_id)), :class => "form-control") %>
   </div>
 
   <!-- Label and input for date -->
   <div class="form-group">
     <label for="date">
-      Date (Year/Month/Day)
+      Date
     </label>
 
-    <input type="text" id="date" name="date" class="form-control" value="<%= @shift.try(:date) %>">
+    <input type="date" id="date" name="date" class="form-control" value="<%= Date.today %>">
+    
   </div>
 
   <!-- Label and input for night -->
@@ -53,7 +54,7 @@
     </label>
   </div>
 
-  <button class="btn btn-block btn-outline-secondary">
+  <button class="btn btn-block btn-outline-primary">
     Create shift
   </button>
 </form>

@@ -1,7 +1,7 @@
 class ShiftsController < ApplicationController
  
   def scheduling
-    @shifts = Shift.all
+    @shifts = Shift.all.order('date asc')
     render("shift_templates/scheduling.html.erb")
   end
 

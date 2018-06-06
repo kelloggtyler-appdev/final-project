@@ -4,8 +4,8 @@
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
-#  start_date :datetime
-#  end_date   :datetime
+#  start_date :date
+#  end_date   :date
 #  approval   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

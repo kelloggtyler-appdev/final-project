@@ -8,7 +8,7 @@
 <% end %>
 
 <h1>
-  Edit block #<%= @block.id %>
+  Edit block #<%= @block.number %>, <%= @block.year %>
 </h1>
 
 <hr>
@@ -20,7 +20,7 @@
       Start date
     </label>
 
-    <input type="text" id="start_date" name="start_date" class="form-control" value="<%= @block.start_date %>">
+    <input type="date" id="start_date" name="start_date" class="form-control" value="<%= @block.start_date %>">
   </div>
 
   <!-- Label and input for end_date -->
@@ -29,10 +29,10 @@
       End date
     </label>
 
-    <input type="text" id="end_date" name="end_date" class="form-control" value="<%= @block.end_date %>">
+    <input type="date" id="end_date" name="end_date" class="form-control" value="<%= @block.end_date %>">
   </div>
 
-  <button class="btn btn-block btn-outline-secondary">
+  <button class="btn btn-block btn-outline-primary">
     Update block
   </button>
 </form>

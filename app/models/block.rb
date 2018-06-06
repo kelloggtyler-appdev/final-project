@@ -3,8 +3,8 @@
 # Table name: blocks
 #
 #  id         :integer          not null, primary key
-#  start_date :datetime
-#  end_date   :datetime
+#  start_date :date
+#  end_date   :date
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  number     :integer
